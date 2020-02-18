@@ -115,6 +115,9 @@ class JSONFormatter(logging.Formatter):
         if 'time' not in extra:
             extra['time'] = datetime.utcnow()
 
+        if 'logLevel' not in extra:
+            extra['loglevel'] = record.levelname
+
         if record.exc_info:
             extra['exc_info'] = self.formatException(record.exc_info)
 
